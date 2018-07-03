@@ -38,4 +38,18 @@ describe('BlockChain',() =>{
 
         expect(bc.isValidChain(bc2.chain)).toBe(false);
     });
+
+    it('ブロックチェーン更新テスト', () =>{
+        bc2.addBlock("fuga");
+        bc.replaceChain(bc2.chain);
+
+        expect(bc.chain).toEqual(bc2.chain);
+    });
+
+    it('ブロックチェーン更新省略テスト', () =>{
+        bc.addBlock("fuda");
+        bc.replaceChain(bc2.chain);
+
+        expect(bc.chain).not.toEqual(bc2.chain);
+    });
 })

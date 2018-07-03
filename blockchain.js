@@ -30,6 +30,19 @@ class Blockchain{
 
         return true;
     }
+
+    replaceChain(newChain){
+        if (newChain.length <= this.chain.length) {
+            // console.log("ブロック数不足の為、省略します。")
+            return;
+        } else if (!this.isValidChain(newChain)) {
+            // console.log("ブロックチェーンデータ不備の為、省略します。")
+            return;
+        }
+        // console.log("最新ブロックチェーンデータに更新します。")
+
+        this.chain = newChain;
+    }
 }
 
 module.exports = Blockchain;
