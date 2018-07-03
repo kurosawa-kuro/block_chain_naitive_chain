@@ -3,6 +3,10 @@
 ## ライブラリ インストール コマンド
 npm i nodemon --save-dev
 npm i crypto-js --save
+npm i jest --save-dev
 
-## テストコード動作コマンド
+## 動作テスト コマンド
 npm run dev-test
+
+### jestを使ったテストコード コマンド 
+npm run test
