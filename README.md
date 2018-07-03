@@ -4,6 +4,7 @@
 npm i nodemon --save-dev
 npm i crypto-js --save
 npm i jest --save-dev
+npm i express --save-dev
 
 ## 動作テスト コマンド
 npm run dev-test

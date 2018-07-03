@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll",
+    "start": "node ./app",
+    "dev": "nodemon ./app",
     "dev-test": "nodemon dev-test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "express": "^4.16.3",
     "jest": "^23.2.0",
     "nodemon": "^1.17.5"
   },
