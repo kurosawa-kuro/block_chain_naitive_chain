@@ -1,5 +1,4 @@
 const Block = require('./block');
-const { DIFFICULTY } = require('../config');
 
 describe('Block',() =>{
 
@@ -20,7 +19,15 @@ describe('Block',() =>{
     });
 
     it('指定難易度のハッシュ値生成テスト', () =>{
-        expect(block.hash.substring(0,DIFFICULTY)).toEqual('0'.repeat(DIFFICULTY));
+        expect(block.hash.substring(0,block.difficulty)).toEqual('0'.repeat(block.difficulty));
         console.log(block.toString());
+    });
+
+    it('低速ブロック採掘で難易度を下げるテスト', () =>{
+        expect(Block.adjustDifficulty(block, block.timestamp + 360000)).toEqual(block.difficulty-1);
+    });
+
+    it('低速ブロック採掘で難易度を下げるテスト', () =>{
+        expect(Block.adjustDifficulty(block, block.timestamp - 360000)).toEqual(block.difficulty+1);
     });
 })
