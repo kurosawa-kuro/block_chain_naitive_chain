@@ -10,6 +10,7 @@ npm i express --save-dev
 npm i body-parser --save-dev
 npm i ws --save-dev
 npm i elliptic --save
+npm i uuid --save
 ```
 
 ## 動作テスト コマンド
