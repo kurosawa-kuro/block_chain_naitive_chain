@@ -23,4 +23,13 @@ describe('Transaction', ()=> {
     it ('取引署名テスト', () => {
         expect(transaction.input.amount).toEqual(wallet.balance);
     });    
+
+    it ('正常なテストの検証テスト', () => {
+        expect(Transaction.verifyTransaction(transaction)).toBe(true);
+    });   
+
+    it ('不正なテストの検証テスト', () => {
+        transaction.outputs[0].amount = 5555;
+        expect(Transaction.verifyTransaction(transaction)).toBe(false);
+    });   
 });
