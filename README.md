@@ -9,6 +9,7 @@ npm i jest --save-dev
 npm i express --save-dev
 npm i body-parser --save-dev
 npm i ws --save-dev
+npm i elliptic --save
 ```
 
 ## 動作テスト コマンド
