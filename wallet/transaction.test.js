@@ -32,4 +32,23 @@ describe('Transaction', ()=> {
         transaction.outputs[0].amount = 5555;
         expect(Transaction.verifyTransaction(transaction)).toBe(false);
     });   
+
+    describe ('取引更新テスト', () => {
+
+        let nextAmount, nextRecipient;
+
+        beforeEach(() => {
+            nextAmount = 20;
+            nextRecipient = 'n32st-13rpi4nt';
+            transaction = transaction.update(wallet,nextRecipient,nextAmount);
+        })
+
+        it ('取引金額差額テスト', () => {
+            expect(transaction.outputs.find(output => output.address === wallet.publicKey).amount).toEqual(wallet.balance - amount - nextAmount);
+        }); 
+
+        it ('送信先取引金額テスト', () => {
+            expect(transaction.outputs.find(output => output.address === nextRecipient).amount).toEqual(nextAmount);
+        }); 
+    });  
 });
