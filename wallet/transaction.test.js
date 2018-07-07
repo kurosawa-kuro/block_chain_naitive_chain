@@ -19,4 +19,8 @@ describe('Transaction', ()=> {
     it ('送金テスト', () => {
         expect(transaction.outputs.find(output => output.address === recipient).amount).toEqual(amount);
     });
+
+    it ('取引署名テスト', () => {
+        expect(transaction.input.amount).toEqual(wallet.balance);
+    });    
 });
